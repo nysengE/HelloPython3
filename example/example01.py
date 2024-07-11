@@ -20,28 +20,48 @@ print(f'''To. {email}
 
 
 # 실전예제 2
-day = input('요일은? ')
-date = input('날짜(월일)는? ')
-minTemp = input('최저 기온은? ')
-maxTemp = input('최고 기온은? ')
-rainy = input('비올확률은? ')
-dusty = input('미세먼지는? ')
-riseSun = input('일출시간은? ')
-downSun = input('일몰시간은? ')
-southWave = input('남해 물결높이는? ')
-eastWave = input('동해 물결높이는? ')
-westWave = input('서해 물결높이는? ')
+#day = input('요일은? ')
+#date = input('날짜(월일)는? ')
+#minTemp = input('최저 기온은? ')
+#maxTemp = input('최고 기온은? ')
+#rainy = input('비올확률은? ')
+#dusty = input('미세먼지는? ')
+#riseSun = input('일출시간은? ')
+#downSun = input('일몰시간은? ')
+#southWave = input('남해 물결높이는? ')
+#eastWave = input('동해 물결높이는? ')
+#westWave = input('서해 물결높이는? ')
 
-print(f'''내일 날씨 예보입니다.
-{day}요일인 {date}의 아침 최저 기온은 {minTemp}도, 낮 최고 기온은 {maxTemp}도로 예보됐습니다.
-비올 확률은 {rainy}%이고, 미세먼지는 {dusty} 수준일 것으로 예상됩니다.
-일출 시간은 {riseSun}이고, 일몰 시간은 {downSun}입니다.
-바다의 물결은 남해 앞바다 {southWave}m, 동해 앞바다 {eastWave}m, 서해 앞바다 {westWave}m 높이로 일겠습니다.
-지금까지 {date} {day}요일 날씨 예보였습니다.''')
+#print(f'''내일 날씨 예보입니다.
+#{day}요일인 {date}의 아침 최저 기온은 {minTemp}도, 낮 최고 기온은 {maxTemp}도로 예보됐습니다.
+#비올 확률은 {rainy}%이고, 미세먼지는 {dusty} 수준일 것으로 예상됩니다.
+#일출 시간은 {riseSun}이고, 일몰 시간은 {downSun}입니다.
+#바다의 물결은 남해 앞바다 {southWave}m, 동해 앞바다 {eastWave}m, 서해 앞바다 {westWave}m 높이로 일겠습니다.
+#지금까지 {date} {day}요일 날씨 예보였습니다.''')
 
 
 # 영수증 예제
-
+date = '2014. 07. 07 14:35:24'
+soju = 2
+chiken = 1
+total = (soju * 3000) + (chiken * 12000)
+paid = 50000
+charge = paid - total
+print(f'''
+[음식나라]
+---------------------
+소주\t\t{soju}\t\t{soju * 3000}
+너나치킨\t{chiken}\t\t{chiken * 12000}
+---------------------
+과세합계\t\t\t{int(total - (total * 0.1))}
+부가세\t\t\t{int(total * 0.1)}
+---------------------
+총합계\t\t\t{total}
+받은금액\t\t\t{paid}
+잔돈\t\t\t\t{charge}
+---------------------
+{date}
+''')
 
 
 
@@ -60,7 +80,7 @@ name = '일지매'
 weight = 45.5
 age = 35
 
-print(name, weight, age)
+#print(name, weight, age)
 
 
 # 12 - 생년월일 계산
@@ -98,17 +118,17 @@ print(f'''현재년도가 {currentYear}이고,
 # print(f'{dan} x 8 = {dan * 8}')
 # print(f'{dan} x 9 = {dan * 9}')
 
-dan = 7
-print(f'''
-{dan} x 1 = {dan * 1}
-{dan} x 2 = {dan * 2}
-{dan} x 3 = {dan * 3}
-{dan} x 4 = {dan * 4}
-{dan} x 5 = {dan * 5}
-{dan} x 6 = {dan * 6}
-{dan} x 7 = {dan * 7}
-{dan} x 8 = {dan * 8}
-{dan} x 9 = {dan * 9}''')
+#dan = 7
+#print(f'''
+#{dan} x 1 = {dan * 1}
+#{dan} x 2 = {dan * 2}
+#{dan} x 3 = {dan * 3}
+#{dan} x 4 = {dan * 4}
+#{dan} x 5 = {dan * 5}
+#{dan} x 6 = {dan * 6}
+#{dan} x 7 = {dan * 7}
+#{dan} x 8 = {dan * 8}
+#{dan} x 9 = {dan * 9}''')
 
 
 
