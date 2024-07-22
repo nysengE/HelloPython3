@@ -50,3 +50,16 @@ def readOneEmp(empid):
     cursor.close()
     conn.close()
     return emp
+
+# 사원 데이터 삭제
+def delDataEmp(empid):
+    conn = sqlite3.connect('db/python.db')
+    cursor = conn.cursor()
+    sql = 'delete from emp where empid = ?'
+    params = (empid,)
+    cursor.execute(sql, params)
+    del_count = cursor.rowcount
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return del_count

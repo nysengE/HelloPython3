@@ -60,3 +60,12 @@ def showOneEmp():
         result = (f'{emp[0]}, {emp[1]}, {emp[2]}, {emp[3]}, {emp[4]}\n'
                   f' {emp[5]}, {emp[6]:}, {emp[7]}, {emp[8]}, {emp[9]}, {emp[10]}')
     print(result)
+
+# 사원 데이터 삭제
+def delEmp():
+    empid = input('삭제할 사원 번호는? ')
+    result = '데이터가 존재하지 않아요!!'
+    del_count = empdao.delDataEmp(empid)
+    if del_count > 0:   # 조회한 데이터가 존재한다면
+        result = f'{del_count} 건의 데이터가 삭제됨!'
+    print(result)
