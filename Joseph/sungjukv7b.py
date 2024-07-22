@@ -40,7 +40,7 @@ def showSungJuk():
         result += f'번호: {sj[0]}, 이름: {sj[1]}, 국어: {sj[2]}, 영어: {sj[3]}, 수학: {sj[4]}, 등록일: {sj[5]}\n'
     print(result)
 
-# 학생 이름으로 성적데이터 조회후 출력
+# 학생 번호로 성적데이터 조회후 출력
 def showOneSungJuk():
     # name = input('조회할 학생 이름은? ')
     sjno = input('조회할 학생 번호는? ')
@@ -61,3 +61,11 @@ def computeSungJuk(sj):
                 '양' if (sj[5] >= 60) else '가'
     sj.append(grd)
 
+# 학생번호를 입력받아 데이터 삭제
+def delSungJuk():
+    sjno = input('삭제할 학생 번호는? ')
+    del_count = sjv7dao.delDataSungJuk(sjno)
+    if del_count > 0:   # 조회한 데이터가 존재한다면
+        print(f'{del_count} 건의 데이터가 삭제됨!')
+    else:
+        print('데이터가 존재하지 않아요!!')
