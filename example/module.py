@@ -31,6 +31,7 @@ import Joseph.calc as zc
 val = zc.add(10, 5)
 print(val)
 
+
 #단위 환산 (convertUnit/readUnit/printUnits)
 def convertUnit():
     readUnit = int(input('길이(mm)를 입력하세요. '))
@@ -45,6 +46,7 @@ def convertUnit():
 def discountPrice():
     discountTable = {
         '쌀': 9900,
+
         '상추': 1900,
         '고추': 2900,
         '마늘': 8900,
