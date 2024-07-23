@@ -63,3 +63,18 @@ def delDataEmp(empid):
     cursor.close()
     conn.close()
     return del_count
+
+# 사원 데이터 수정
+def updateEmp(emp):
+    sql = 'update emp set fname=?, lname=?, email=?, phone=?, jobid=?, '\
+          'sal=?, comm=?, mgrid=?, depid=? where empid=?'
+    conn = sqlite3.connect('db/python.db')
+    cursor = conn.cursor()
+    params = (emp[1],emp[2],emp[3],emp[4],emp[6],
+              emp[7],emp[8],emp[9],emp[10], emp[0])
+    cursor.execute(sql, params)
+    mdf_count = cursor.rowcount
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return mdf_count

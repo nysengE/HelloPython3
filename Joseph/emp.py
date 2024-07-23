@@ -21,17 +21,17 @@ def displayMenu():
 def readEmp():
     emp = []
     cnt = empdao.getTotalEmp()
-    emp.append(input(f'{cnt}번 사원 번호는? '))
-    emp.append(input(f'{cnt}번 사원 이름은? '))
-    emp.append(input(f'{cnt}번 사원 성은? '))
-    emp.append(input(f'{cnt}번 사원 이메일은? '))
-    emp.append(input(f'{cnt}번 사원 전화번호는? '))
-    emp.append(input(f'{cnt}번 사원 입사일은? '))
-    emp.append(input(f'{cnt}번 사원 직책은? '))
-    emp.append(input(f'{cnt}번 사원 급여는? '))
-    emp.append(input(f'{cnt}번 사원 수당은? (없으면 0)'))
-    emp.append(input(f'{cnt}번 사원 매니저 번호는? (없으면 0)'))
-    emp.append(input(f'{cnt}번 사원 부서 번호는? (없으면 0)'))
+    emp.append(input(f'추가할 사원의 사원번호는? '))
+    emp.append(input(f'추가할 사원의 이름은? '))
+    emp.append(input(f'추가할 사원의 성은? '))
+    emp.append(input(f'추가할 사원의 이메일은? '))
+    emp.append(input(f'추가할 사원의 전화번호는? '))
+    emp.append(input(f'추가할 사원의 입사일은? '))
+    emp.append(input(f'추가할 사원의 직책은? '))
+    emp.append(input(f'추가할 사원의 급여는? '))
+    emp.append(input(f'추가할 사원의 수당은? (없으면 0) '))
+    emp.append(input(f'추가할 사원의 매니저 번호는? (없으면 0) '))
+    emp.append(input(f'추가할 사원의 부서 번호는? (없으면 0) '))
     return emp
 
 # 입력받은 사원 데이터를 처리하고 테이블에 저장
@@ -53,7 +53,7 @@ def showEmp():
 
 # 사원 번호로 사원 데이터 조회후 출력
 def showOneEmp():
-    empid = input('조회할 사원 번호는? ')
+    empid = input('조회할 사원의 사원번호를 입력하세요. ')
     result = '데이터가 존재하지 않아요!!'
     emp = empdao.readOneEmp(empid)
     if emp:   # 조회한 데이터가 존재한다면
@@ -63,9 +63,37 @@ def showOneEmp():
 
 # 사원 데이터 삭제
 def delEmp():
-    empid = input('삭제할 사원 번호는? ')
+    empid = input('삭제할 사원의 사원번호를 입력하세요. ')
     result = '데이터가 존재하지 않아요!!'
     del_count = empdao.delDataEmp(empid)
     if del_count > 0:   # 조회한 데이터가 존재한다면
         result = f'{del_count} 건의 데이터가 삭제됨!'
     print(result)
+
+def modifyEmp():
+    empid = input('수정할 사원의 사원번호를 입력하세요. ')
+    result = '데이터가 존재하지 않아요!!'
+    emp = empdao.readOneEmp(empid)
+    if emp:   # 조회한 데이터가 존재한다면
+        emp = readAgainEmp(emp)
+        mdf_count = empdao.updateEmp(emp)
+        result = f'{mdf_count} 건의 데이터가 수정됨!'
+    print(result)
+
+def readAgainEmp(emp):
+    nemp = []
+    nemp.append(emp[0])
+    nemp.append(input(f'수정할 사원의 이름은? ({emp[1]}) '))
+    nemp.append(input(f'수정할 사원의 성은? ({emp[2]}) '))
+    nemp.append(input(f'수정할 사원의 이메일은? ({emp[3]}) '))
+    nemp.append(input(f'수정할 사원의 전화번호는? ({emp[4]}) '))
+    nemp.append(emp[5])
+    nemp.append(input(f'수정할 사원의 직책은? ({emp[6]}) '))
+    nemp.append(input(f'수정할 사원의 급여는? ({emp[7]}) '))
+    nemp.append(input(f'수정할 사원의 수당은? ({emp[8]}, 없으면 0) '))
+    nemp.append(input(f'수정할 사원의 매니저 번호는? ({emp[9]}, 없으면 0) '))
+    nemp.append(input(f'수정할 사원의 부서 번호는? ({emp[10]}, 없으면 0) '))
+    nemp[8] = float(nemp[8]) if nemp[8] != '0' else None
+    nemp[9] = int(nemp[9]) if nemp[9] != '0' else None
+    nemp[10] = int(nemp[10]) if nemp[10] != '0' else None
+    return nemp
