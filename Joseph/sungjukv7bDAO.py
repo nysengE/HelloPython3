@@ -20,7 +20,7 @@ def newSungJuk(sj):
            values (?,?,?,?, ?,?,?)'
     conn = sqlite3.connect('db/python.db')
     cursor = conn.cursor()
-    params = (sj[0],sj[1],sj[2],sj[3],sj[4],sj[5],sj[6])
+    params = (sj[1],sj[2],sj[3],sj[4],sj[5],sj[6],sj[7])
     cursor.execute(sql, params)
     print(cursor.rowcount, '건의 데이터 추가됨!')
     conn.commit()
@@ -62,3 +62,15 @@ def delDataSungJuk(sjno):
     cursor.close()
     conn.close()
     return del_count
+
+def updateSungJuk(sj):
+    sql = 'update sungjuk set kor=?, eng=?, mat=?, tot=?, avg=?, grd=? where sjno =?'
+    conn = sqlite3.connect('db/python.db')
+    cursor = conn.cursor()
+    params = (sj[2],sj[3],sj[4],sj[5],sj[6],sj[7],sj[0])
+    cursor.execute(sql, params)
+    print(cursor.rowcount, '건의 데이터 수정됨!')
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return sj
